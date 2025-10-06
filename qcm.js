@@ -1,4 +1,4 @@
-// qcm.js — version sans webcam
+// qcm.js — version finale sans webcam mais connectée à Supabase
 
 // ===============================
 // CONFIGURATION
@@ -83,7 +83,7 @@ function shuffleArray(arr) {
 // CONSTRUCTION DES QUESTIONS
 // ===============================
 function buildQuestions() {
-  currentQuestions = shuffleArray(QUESTIONS).slice(0, 15); // 15 questions par session
+  currentQuestions = shuffleArray(QUESTIONS).slice(0, 15);
   questionsContainer.innerHTML = '';
   currentQuestions.forEach((q, idx) => {
     const div = document.createElement('div');
@@ -138,29 +138,25 @@ function computeScore(answers) {
   return { correct, total, pct: Math.round((correct / total) * 100) };
 }
 
-function showResult(score) {
-  quizForm.style.display = 'none';
-  resultBox.style.display = 'block';
-  scoreText.textContent = `Score : ${score.pct}% — ${score.correct}/${score.total} bonnes réponses.`;
-  attemptsInfo.textContent = `Tentatives utilisées : ${attemptCount}/${MAX_ATTEMPTS}`;
-  localStorage.setItem('qcm_attempts', String(attemptCount));
-
-  if (attemptCount >= MAX_ATTEMPTS) {
-    retryBtn.disabled = true;
-    retryBtn.textContent = 'Plus de tentatives disponibles';
-    retryBtn.classList.add('disabled');
-  } else {
-    retryBtn.disabled = false;
-    retryBtn.textContent = 'Refaire le QCM';
-  }
-}
-
-function submitQuiz() {
+// ===============================
+// ENVOI SUPABASE + REDIRECTION
+// ===============================
+async function submitQuiz() {
   stopTimer();
   const answers = gatherAnswers();
   const score = computeScore(answers);
   attemptCount++;
-  showResult(score);
+
+  // Enregistrement sur Supabase
+  const SUPABASE_URL = "https://kxhgfmtygiuxaqbyvjca.supabase.co"; 
+  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt4aGdmbXR5Z2l1eGFxYnl2amNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3Nzg4MTIsImV4cCI6MjA3NTM1NDgxMn0.UqVXBKVQ_oqXPv5W7Ad--f-Wp21z_2n90Z_1Vz31fzw";
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const email = localStorage.getItem('agz_current_user') || "anonyme";
+  await supabaseClient.from("qcm_results").insert([{ email, score: score.pct }]);
+
+  // Redirection sans afficher le résultat
+  window.location.href = "merci.html";
 }
 
 // ===============================
@@ -182,7 +178,7 @@ startBtn.addEventListener('click', () => {
 });
 
 submitBtn.addEventListener('click', () => {
-  if (!confirm('Validez-vous votre QCM ?')) return;
+  if (!confirm('Validez-vous définitivement votre QCM ?')) return;
   submitQuiz();
 });
 
