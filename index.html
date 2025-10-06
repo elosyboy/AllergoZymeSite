@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AllergoZyme Label - Professionnel</title>
+
+  <!-- Police -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blanc: #ffffff;
+      --or: #d4af37;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--blanc);
+      color: var(--or);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 40px 0 20px;
+    }
+
+    header img {
+      width: 180px;
+      max-width: 100%;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.6em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--or);
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1.1em;
+      margin-bottom: 25px;
+    }
+
+    /* Bouton principal */
+    .cta {
+      display: inline-block;
+      background-color: var(--or);
+      color: var(--blanc);
+      padding: 14px 32px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05em;
+      letter-spacing: 0.5px;
+      border: 2px solid var(--or);
+      transition: all 0.3s ease;
+      margin-bottom: 60px;
+    }
+
+    .cta:hover {
+      background-color: var(--blanc);
+      color: var(--or);
+    }
+
+    /* 3 Cartes en haut */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto 70px;
+      padding: 0 20px;
+    }
+
+    .card {
+      border: 2px solid var(--or);
+      border-radius: 12px;
+      padding: 25px;
+      width: 280px;
+      background-color: var(--blanc);
+      color: var(--or);
+      box-shadow: 0 0 15px rgba(212,175,55,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(212,175,55,0.4);
+    }
+
+    .card h3 {
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      font-size: 0.95em;
+    }
+
+    /* Section finale */
+    .labelisation {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      padding: 80px 30px 100px;
+      text-align: left;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .labelisation img {
+      width: 260px;
+      border-radius: 10px;
+    }
+
+    .labelisation-text {
+      max-width: 550px;
+      color: var(--or);
+    }
+
+    .labelisation-text h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .labelisation-text p {
+      font-size: 1em;
+    }
+
+    /* Bandeau de contact */
+    footer {
+      background-color: var(--or);
+      color: var(--blanc);
+      text-align: center;
+      padding: 20px 0;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .labelisation {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .labelisation-text {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Logo principal -->
+  <header>
+    <img src="assets/logo1.png" alt="Logo AllergoZyme">
+  </header>
+
+  <!-- Titre principal -->
+  <h1>AllergoZyme Label – Professionnel</h1>
+  <p class="subtitle">Demandez votre adhésion, entrez vos informations et rejoignez le mouvement.</p>
+
+  <!-- Bouton d'action -->
+  <a href="inscription.html" class="cta">Demander mon adhésion</a>
+
+  <!-- Trois arguments clés -->
+  <section class="features">
+    <div class="card">
+      <h3>🌍 30 %</h3>
+      <p>de la population mondiale est concernée par les allergies alimentaires.
+      Chaque établissement labellisé devient une source d’espoir pour ces millions de personnes.</p>
+    </div>
+    <div class="card">
+      <h3>🤝 Confiance</h3>
+      <p>Le label valorise les lieux où rigueur, bienveillance et transparence deviennent une seconde nature.</p>
+    </div>
+    <div class="card">
+      <h3>💡 Vision</h3>
+      <p>AllergoZyme Label s’inscrit dans une nouvelle ère : celle d’une restauration consciente,
+      humaine et tournée vers la sécurité de tous.</p>
+    </div>
+  </section>
+
+  <!-- Présentation et émotion -->
+  <section class="labelisation">
+    <img src="assets/logo2.PNG" alt="Symbole du Label AllergoZyme">
+
+    <div class="labelisation-text">
+      <h2>Un mouvement d’espoir et de responsabilité</h2>
+      <p>
+        Le label <strong>AllergoZyme</strong> est né d’une conviction :  
+        celle que manger ne devrait jamais être une source d’inquiétude.  
+        <br><br>
+        Derrière chaque restaurant labellisé se cache une promesse — celle d’un lieu
+        où les personnes allergiques peuvent respirer, sourire et profiter d’un repas
+        sans crainte.  
+        <br><br>
+        Ce projet est bien plus qu’une reconnaissance : c’est un engagement humain.  
+        Une volonté de replacer la confiance, la transparence et la bienveillance
+        au cœur de l’expérience culinaire.  
+        <br><br>
+        Ensemble, redéfinissons la normalité.  
+        Ensemble, faisons d’AllergoZyme un symbole universel de respect et d’humanité.
+      </p>
+    </div>
+  </section>
+
+  <!-- Bandeau doré -->
+  <footer>
+    Contact : allergozypro@gmail.com
+  </footer>
+</body>
+</html>

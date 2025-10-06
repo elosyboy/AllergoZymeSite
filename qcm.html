@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QCM AllergoZyme — Évaluation Professionnelle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blanc: #ffffff;
+      --or: #d4af37;
+      --gris: #f9f9f9;
+      --ombre: rgba(212,175,55,0.25);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background-color: var(--blanc);
+      color: var(--or);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 0 20px;
+    }
+
+    header img {
+      width: 180px;
+      transition: transform 0.4s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 12px rgba(212,175,55,0.3));
+    }
+
+    main {
+      width: 90%;
+      max-width: 950px;
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: 80px;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.3em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 1em;
+      opacity: 0.9;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--or);
+      color: var(--blanc);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s ease;
+      margin-top: 15px;
+      box-shadow: 0 0 10px rgba(212,175,55,0.3);
+    }
+
+    .btn:hover {
+      background-color: var(--blanc);
+      color: var(--or);
+      border: 2px solid var(--or);
+      box-shadow: 0 0 20px rgba(212,175,55,0.6);
+      transform: scale(1.03);
+    }
+
+    .btn.outline {
+      background-color: var(--blanc);
+      color: var(--or);
+      border: 2px solid var(--or);
+    }
+
+    form.quiz {
+      text-align: left;
+      background-color: var(--gris);
+      border: 2px solid var(--or);
+      border-radius: 20px;
+      padding: 30px 40px;
+      box-shadow: 0 0 25px var(--ombre);
+    }
+
+    .question {
+      margin-bottom: 25px;
+      border-bottom: 1px solid rgba(212,175,55,0.3);
+      padding-bottom: 15px;
+    }
+
+    .question h3 {
+      font-size: 1.05em;
+      font-weight: 600;
+      color: var(--or);
+      margin-bottom: 8px;
+    }
+
+    .question label {
+      margin-right: 20px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .actions {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .result {
+      margin-top: 40px;
+      text-align: center;
+      background-color: var(--gris);
+      border: 2px solid var(--or);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 0 25px var(--ombre);
+    }
+
+    .result h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .result-actions {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer {
+      background-color: var(--or);
+      color: var(--blanc);
+      text-align: center;
+      padding: 15px 0;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 700px) {
+      form.quiz {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="assets/logo1.png" alt="Logo AllergoZyme" class="logo">
+  </header>
+
+  <main class="container">
+    <h1>QCM — Évaluation Professionnelle</h1>
+    <p class="subtitle">Durée : <strong>5 minutes</strong> · Réponses : <strong>Oui / Non</strong> · Tentatives : <strong>2 maximum</strong></p>
+
+    <div class="actions">
+      <button id="startBtn" class="btn gold">Commencer le QCM</button>
+    </div>
+
+    <form id="quizForm" class="quiz" style="display:none;">
+      <div id="questionsContainer"></div>
+      <div class="actions">
+        <button type="button" id="submitBtn" class="btn gold">Valider le QCM</button>
+      </div>
+    </form>
+
+    <section id="result" class="result" style="display:none;">
+      <h2>Résultat de l’évaluation</h2>
+      <p id="scoreText"></p>
+      <div id="attemptsInfo"></div>
+
+      <div class="result-actions">
+        <button id="retryBtn" class="btn gold">Refaire le QCM (si autorisé)</button>
+        <a href="dashboard.html" id="toDashboard" class="btn outline">Accéder à mon espace</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; 2025 AllergoZyme</footer>
+
+  <script src="qcm.js"></script>
+</body>
+</html>

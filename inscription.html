@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inscription Professionnelle - AllergoZyme Label</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blanc: #ffffff;
+      --or: #d4af37;
+      --gris: #f9f9f9;
+      --ombre: rgba(212,175,55,0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--blanc);
+      color: var(--or);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      text-align: center;
+      padding: 50px 0 20px;
+    }
+
+    header img {
+      width: 180px;
+      transition: transform 0.4s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 12px rgba(212,175,55,0.3));
+    }
+
+    /* ===== TITRE ===== */
+    .title-section {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.6em;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: var(--or);
+    }
+
+    .subtitle {
+      font-size: 1.05em;
+      opacity: 0.9;
+      color: var(--or);
+    }
+
+    /* ===== FORMULAIRE ===== */
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 50px 20px 80px;
+    }
+
+    .form-container {
+      width: 95%;
+      max-width: 950px;
+      background: linear-gradient(180deg, var(--gris) 0%, var(--blanc) 100%);
+      border-radius: 25px;
+      box-shadow: 0 0 35px var(--ombre);
+      padding: 60px 70px;
+      border-top: 3px solid var(--or);
+      border-bottom: 3px solid var(--or);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 45px;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      font-weight: 600;
+      font-size: 0.95em;
+    }
+
+    input, select {
+      margin-top: 8px;
+      padding: 13px 16px;
+      border-radius: 12px;
+      border: 2px solid var(--or);
+      background-color: var(--blanc);
+      font-size: 1em;
+      color: var(--or);
+      transition: 0.3s ease;
+      font-weight: 500;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      box-shadow: 0 0 12px rgba(212,175,55,0.4);
+      transform: scale(1.01);
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    .consent {
+      grid-column: span 2;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9em;
+      margin-top: 10px;
+    }
+
+    .consent input {
+      margin-top: 4px;
+      transform: scale(1.2);
+    }
+
+    /* ===== BOUTONS ===== */
+    .actions {
+      grid-column: span 2;
+      display: flex;
+      justify-content: flex-end;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1.05em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.35s ease;
+      border: 2px solid var(--or);
+      letter-spacing: 0.4px;
+    }
+
+    .btn.gold {
+      background-color: var(--or);
+      color: var(--blanc);
+      box-shadow: 0 0 15px rgba(212,175,55,0.4);
+    }
+
+    .btn.gold:hover {
+      background-color: var(--blanc);
+      color: var(--or);
+      box-shadow: 0 0 25px rgba(212,175,55,0.6);
+      transform: scale(1.03);
+    }
+
+    .btn.outline {
+      background-color: var(--blanc);
+      color: var(--or);
+    }
+
+    .btn.outline:hover {
+      background-color: var(--or);
+      color: var(--blanc);
+      transform: scale(1.03);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: var(--or);
+      color: var(--blanc);
+      text-align: center;
+      padding: 18px 0;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 850px) {
+      .form-container {
+        padding: 40px 25px;
+      }
+      form {
+        grid-template-columns: 1fr;
+      }
+      .actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="assets/logo1.png" alt="Logo AllergoZyme">
+  </header>
+
+  <div class="title-section">
+    <h1>Inscription Professionnelle</h1>
+    <p class="subtitle">Rejoignez les établissements engagés dans la sécurité alimentaire et la transparence.</p>
+  </div>
+
+  <main>
+    <div class="form-container">
+      <form id="signupForm" autocomplete="on" novalidate>
+        <label>Prénom *<input type="text" id="firstName" required></label>
+        <label>Nom *<input type="text" id="lastName" required></label>
+        <label>Email professionnel *<input type="email" id="email" required></label>
+        <label>Téléphone *<input type="tel" id="phone" required></label>
+        <label class="full-width">Nom de l’établissement *<input type="text" id="establishment" required></label>
+        <label>Type d’établissement *
+          <select id="type" required>
+            <option value="">Choisir...</option>
+            <option>Restaurant</option>
+            <option>Snack</option>
+            <option>Bar</option>
+            <option>Boulangerie</option>
+            <option>Traiteur</option>
+            <option>Autre</option>
+          </select>
+        </label>
+        <label id="otherTypeLabel" style="display:none;">Préciser (Autre)<input type="text" id="otherType"></label>
+        <label class="full-width">Adresse complète *<input type="text" id="address" required></label>
+        <label>Code postal *<input type="text" id="postal" required pattern="\d{2,5}"></label>
+        <label>Ville *<input type="text" id="city" required></label>
+        <label>Nombre d’établissements<input type="number" id="nbEtab" min="1" value="1"></label>
+        <label>Numéro de SIREN (optionnel)<input type="text" id="siren" pattern="\d{9}" placeholder="9 chiffres"></label>
+
+        <div class="consent">
+          <input type="checkbox" id="rgpd" required>
+          <label for="rgpd">J’accepte la politique de confidentialité et la conservation temporaire de mes données.</label>
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="engagement" required>
+          <label for="engagement">Je m’engage à respecter les valeurs du label AllergoZyme et à maintenir un haut standard d’hygiène et de transparence.</label>
+        </div>
+
+        <div class="actions">
+          <a href="index.html" class="btn outline">Retour</a>
+          <button type="submit" class="btn gold">Valider mon inscription</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>Contact : allergozypro@gmail.com</footer>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script>
+  (function(){
+    const form = document.getElementById('signupForm');
+    const typeSelect = document.getElementById('type');
+    const otherLabel = document.getElementById('otherTypeLabel');
+
+    const SUPABASE_URL = "https://thvhidhzjakjjivucrzn.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRodmhpZGh6amFramppdnVjcnpuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkzNTE2OTcsImV4cCI6MjA3NDkyNzY5N30.TaeB32QSorTwJnHziTkNBVo0Q7SPakEkB-j1R_RXugk";
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    typeSelect.addEventListener('change', ()=> {
+      otherLabel.style.display = (typeSelect.value === 'Autre') ? 'block' : 'none';
+    });
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      if(!form.checkValidity()){
+        alert('Merci de remplir tous les champs requis.');
+        return;
+      }
+
+      const data = {
+        first_name: document.getElementById('firstName').value.trim(),
+        last_name: document.getElementById('lastName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        establishment: document.getElementById('establishment').value.trim(),
+        type: typeSelect.value === 'Autre' ? document.getElementById('otherType').value.trim() : typeSelect.value,
+        address: document.getElementById('address').value.trim(),
+        postal: document.getElementById('postal').value.trim(),
+        city: document.getElementById('city').value.trim(),
+        nb_etab: parseInt(document.getElementById('nbEtab').value || '1', 10),
+        siren: document.getElementById('siren').value.trim(),
+        rgpd: document.getElementById('rgpd').checked,
+        engagement: document.getElementById('engagement').checked,
+        created_at: new Date().toISOString()
+      };
+
+      const { error } = await supabaseClient.from("users").insert([data]);
+      if(error){
+        alert("Erreur lors de l'inscription : " + error.message);
+        return;
+      }
+
+      localStorage.setItem('agz_current_user', data.email);
+      localStorage.setItem('restaurantName', data.establishment);
+
+      window.location.href = "qcm.html";
+    });
+  })();
+  </script>
+</body>
+</html>
