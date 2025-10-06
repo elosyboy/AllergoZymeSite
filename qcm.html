@@ -121,30 +121,6 @@
       margin-top: 30px;
     }
 
-    .result {
-      margin-top: 40px;
-      text-align: center;
-      background-color: var(--gris);
-      border: 2px solid var(--or);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 0 25px var(--ombre);
-    }
-
-    .result h2 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.5em;
-      margin-bottom: 10px;
-    }
-
-    .result-actions {
-      margin-top: 25px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
     footer {
       background-color: var(--or);
       color: var(--blanc);
@@ -189,13 +165,20 @@
 
       <div class="result-actions">
         <button id="retryBtn" class="btn gold">Refaire le QCM (si autorisé)</button>
-        <a href="dashboard.html" id="toDashboard" class="btn outline">Accéder à mon espace</a>
+        <a href="merci.html" id="toMerci" class="btn outline">Retour à l'accueil</a>
       </div>
     </section>
   </main>
 
   <footer>&copy; 2025 AllergoZyme</footer>
 
+  <!-- ✅ Ajout du SDK Supabase AVANT ton script -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    window.supabase = supabase;
+  </script>
+
+  <!-- ✅ Script du QCM -->
   <script src="qcm.js"></script>
 </body>
 </html>
