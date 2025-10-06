@@ -11,11 +11,16 @@ const QUESTIONS = [
   { id:7, text:"Le gluten peut être présent à l'état de traces sur des ustensiles si ceux-ci ne sont pas bien nettoyés.", ans:true },
   { id:8, text:"Réchauffer un plat dans un four partagé sans nettoyage n'expose pas au risque d'allergènes.", ans:false },
   { id:9, text:"La moutarde doit être indiquée même si elle est utilisée uniquement comme arôme dans une sauce.", ans:true },
-  { id:10, text:"Le poisson et les fruits de mer peuvent partager des allergènes interchangeables.", ans:false }
+  { id:10, text:"Le poisson et les fruits de mer peuvent partager des allergènes interchangeables.", ans:false },
+  { id:11, text:"Un personnel correctement formé peut réduire significativement les incidents d'allergies.", ans:true },
+  { id:12, text:"L'affichage ‘peut contenir des traces de…’ décharge totalement un établissement de toute responsabilité.", ans:false },
+  { id:13, text:"Le stockage séparé des ingrédients réduit le risque de contamination croisée.", ans:true },
+  { id:14, text:"Le lavage des mains entre deux préparations est obligatoire même si on a changé de gants.", ans:true },
+  { id:15, text:"Les traces d'arachides peuvent provoquer une réaction grave même en très faible quantité.", ans:true }
 ];
 
 const MAX_ATTEMPTS = 2;
-const QUIZ_SECONDS = 15 * 60;
+const QUIZ_SECONDS = 15 * 60; // 15 minutes max
 
 // ===============================
 // RÉFÉRENCES UI
@@ -45,7 +50,7 @@ function shuffleArray(arr) {
 }
 
 function buildQuestions() {
-  currentQuestions = shuffleArray(QUESTIONS);
+  currentQuestions = shuffleArray(QUESTIONS).slice(0, 15);
   questionsContainer.innerHTML = "";
   currentQuestions.forEach((q, idx) => {
     const div = document.createElement("div");
@@ -81,7 +86,16 @@ function computeScore(answers) {
 // ===============================
 const SUPABASE_URL = "https://kxhgfmtygiuxaqbyvjca.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt4aGdmbXR5Z2l1eGFxYnl2amNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3Nzg4MTIsImV4cCI6MjA3NTM1NDgxMn0.UqVXBKVQ_oqXPv5W7Ad--f-Wp21z_2n90Z_1Vz31fzw";
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// ⚠️ On attend que Supabase soit bien chargé avant d'utiliser createClient
+let supabaseClient = null;
+window.addEventListener("load", () => {
+  if (window.supabase) {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  } else {
+    alert("Erreur critique : Supabase non chargé !");
+  }
+});
 
 // ===============================
 // SUBMISSION
@@ -90,6 +104,11 @@ async function submitQuiz() {
   const answers = gatherAnswers();
   const score = computeScore(answers);
   const email = localStorage.getItem("agz_current_user") || "anonyme";
+
+  if (!supabaseClient) {
+    alert("Connexion à la base impossible (Supabase non initialisé)");
+    return;
+  }
 
   try {
     const { data, error } = await supabaseClient
@@ -104,10 +123,11 @@ async function submitQuiz() {
     }
 
     console.log("✅ Données enregistrées :", data);
+    alert("✅ Vos réponses ont bien été enregistrées !");
     window.location.href = "merci.html";
   } catch (err) {
     console.error("Erreur JS :", err);
-    alert("Erreur : " + err.message);
+    alert("Erreur inattendue : " + err.message);
   }
 }
 

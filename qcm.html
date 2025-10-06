@@ -172,13 +172,19 @@
 
   <footer>&copy; 2025 AllergoZyme</footer>
 
-  <!-- ✅ Ajout du SDK Supabase AVANT ton script -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    window.supabase = supabase;
-  </script>
+   <footer>&copy; 2025 AllergoZyme</footer>
 
-  <!-- ✅ Script du QCM -->
-  <script src="qcm.js"></script>
+  <!-- ✅ Charger le SDK Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- ✅ Charger qcm.js uniquement après le chargement complet du SDK -->
+  <script>
+    window.addEventListener("load", () => {
+      window.supabase = supabase;
+      const script = document.createElement("script");
+      script.src = "qcm.js";
+      document.body.appendChild(script);
+    });
+  </script>
 </body>
 </html>

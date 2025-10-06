@@ -3,16 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Merci - AllergoZyme Label</title>
+  <title>Merci – AllergoZyme Label</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --or: #d4af37;
+      --blanc: #ffffff;
+      --ombre: rgba(212,175,55,0.25);
+    }
+
     body {
       margin: 0;
       padding: 0;
-      background-color: #ffffff;
-      color: #bfa14a;
+      background-color: var(--blanc);
+      color: var(--or);
       font-family: 'Poppins', sans-serif;
       display: flex;
       flex-direction: column;
@@ -20,70 +26,91 @@
       align-items: center;
       min-height: 100vh;
       text-align: center;
+      overflow: hidden;
     }
 
-    img.logo {
-      width: 220px;
-      margin-bottom: 40px;
-      animation: fadeIn 2s ease-in-out;
+    header img {
+      width: 200px;
+      margin-bottom: 35px;
+      animation: fadeIn 1.5s ease-in-out;
+      filter: drop-shadow(0 0 12px var(--ombre));
     }
 
     h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 2.2rem;
       letter-spacing: 2px;
-      margin-bottom: 15px;
-      color: #bfa14a;
+      margin-bottom: 20px;
+      color: var(--or);
+      animation: slideDown 1.2s ease-out;
     }
 
     p {
       max-width: 600px;
       font-size: 1.1rem;
       line-height: 1.6;
-      margin-bottom: 40px;
-      color: #bfa14a;
+      margin: 0 auto 40px;
+      color: var(--or);
+      animation: fadeIn 2s ease-in-out;
     }
 
     .btn {
-      background-color: #bfa14a;
-      color: #fff;
+      background-color: var(--or);
+      color: var(--blanc);
       text-decoration: none;
       padding: 12px 28px;
-      border-radius: 30px;
+      border-radius: 40px;
       font-weight: 600;
       letter-spacing: 1px;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px var(--ombre);
+      animation: fadeIn 2.5s ease-in-out;
     }
 
     .btn:hover {
-      background-color: #cdb45a;
+      background-color: var(--blanc);
+      color: var(--or);
+      border: 2px solid var(--or);
+      box-shadow: 0 0 18px var(--ombre);
+      transform: scale(1.05);
     }
 
     footer {
       position: absolute;
-      bottom: 10px;
+      bottom: 15px;
       font-size: 0.9rem;
-      color: #bfa14a;
+      color: var(--or);
+      animation: fadeIn 3s ease-in-out;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      p { font-size: 1rem; padding: 0 15px; }
+      header img { width: 160px; }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <img src="assets/logo1.png" alt="Logo AllergoZyme" class="logo">
+    <img src="assets/logo1.png" alt="Logo AllergoZyme">
   </header>
 
   <main>
-    <h1>Nous vous remercions 🙏</h1>
+    <h1>Merci pour votre participation 🙏</h1>
     <p>
-      Votre QCM a bien été enregistré.  
-      Vous serez contacté(e) dans un délai maximum de <strong>72 heures</strong>,  
-      selon la demande et le volume des inscriptions en cours.  
+      Votre QCM a été enregistré avec succès.<br>
+      Vous serez contacté(e) sous <strong>72 heures maximum</strong> pour la suite du processus.<br>
       Merci pour votre confiance et votre engagement envers la sécurité des personnes allergiques.
     </p>
 
@@ -91,7 +118,7 @@
   </main>
 
   <footer>
-    <p>© 2025 AllergoZyme Label — Contact : allergozypro@gmail.com</p>
+    © 2025 AllergoZyme Label — Contact : allergozypro@gmail.com
   </footer>
 </body>
 </html>
