@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Inscription Professionnelle - AllergoZyme Label</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --blanc: #ffffff;
@@ -13,11 +12,7 @@
       --gris: #f9f9f9;
       --ombre: rgba(212,175,55,0.25);
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       background-color: var(--blanc);
@@ -25,56 +20,23 @@
       font-family: 'Poppins', sans-serif;
       overflow-x: hidden;
     }
+    header { text-align: center; padding: 50px 0 20px; }
+    header img { width: 180px; transition: transform 0.4s ease; }
+    header img:hover { transform: scale(1.05); filter: drop-shadow(0 0 12px rgba(212,175,55,0.3)); }
 
-    /* ===== HEADER ===== */
-    header {
-      text-align: center;
-      padding: 50px 0 20px;
-    }
-
-    header img {
-      width: 180px;
-      transition: transform 0.4s ease;
-    }
-
-    header img:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 0 12px rgba(212,175,55,0.3));
-    }
-
-    /* ===== TITRE ===== */
-    .title-section {
-      text-align: center;
-      margin-bottom: 40px;
-      animation: fadeIn 1s ease forwards;
-    }
-
+    .title-section { text-align: center; margin-bottom: 40px; animation: fadeIn 1s ease forwards; }
     h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 2.6em;
-      letter-spacing: 1.5px;
       text-transform: uppercase;
       margin-bottom: 10px;
       color: var(--or);
     }
+    .subtitle { font-size: 1.05em; opacity: 0.9; color: var(--or); }
 
-    .subtitle {
-      font-size: 1.05em;
-      opacity: 0.9;
-      color: var(--or);
-    }
-
-    /* ===== FORMULAIRE ===== */
-    main {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 50px 20px 80px;
-    }
-
+    main { display: flex; justify-content: center; padding: 50px 20px 80px; }
     .form-container {
-      width: 95%;
-      max-width: 950px;
+      width: 95%; max-width: 950px;
       background: linear-gradient(180deg, var(--gris) 0%, var(--blanc) 100%);
       border-radius: 25px;
       box-shadow: 0 0 35px var(--ombre);
@@ -83,136 +45,67 @@
       border-bottom: 3px solid var(--or);
       animation: fadeUp 0.8s ease forwards;
     }
-
-    form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px 45px;
-    }
-
-    label {
-      display: flex;
-      flex-direction: column;
-      font-weight: 600;
-      font-size: 0.95em;
-    }
-
+    form { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 45px; }
+    label { display: flex; flex-direction: column; font-weight: 600; font-size: 0.95em; }
     input, select {
-      margin-top: 8px;
-      padding: 13px 16px;
-      border-radius: 12px;
-      border: 2px solid var(--or);
+      margin-top: 8px; padding: 13px 16px;
+      border-radius: 12px; border: 2px solid var(--or);
       background-color: var(--blanc);
-      font-size: 1em;
-      color: var(--or);
-      transition: 0.3s ease;
-      font-weight: 500;
+      font-size: 1em; color: var(--or);
+      transition: 0.3s ease; font-weight: 500;
     }
-
     input:focus, select:focus {
-      outline: none;
-      box-shadow: 0 0 12px rgba(212,175,55,0.4);
+      outline: none; box-shadow: 0 0 12px rgba(212,175,55,0.4);
       transform: scale(1.01);
     }
-
-    .full-width {
-      grid-column: span 2;
-    }
-
+    .full-width { grid-column: span 2; }
     .consent {
-      grid-column: span 2;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.9em;
-      margin-top: 10px;
+      grid-column: span 2; display: flex; align-items: flex-start;
+      gap: 10px; font-size: 0.9em; margin-top: 10px;
     }
+    .consent input { margin-top: 4px; transform: scale(1.2); }
 
-    .consent input {
-      margin-top: 4px;
-      transform: scale(1.2);
-    }
-
-    /* ===== BOUTONS ===== */
     .actions {
-      grid-column: span 2;
-      display: flex;
-      justify-content: flex-end;
-      gap: 25px;
-      margin-top: 30px;
+      grid-column: span 2; display: flex; justify-content: flex-end;
+      gap: 25px; margin-top: 30px;
     }
-
     .btn {
-      padding: 14px 36px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 1.05em;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.35s ease;
-      border: 2px solid var(--or);
-      letter-spacing: 0.4px;
+      padding: 14px 36px; border-radius: 40px;
+      font-weight: 600; font-size: 1.05em;
+      cursor: pointer; transition: all 0.35s ease;
+      border: 2px solid var(--or); letter-spacing: 0.4px;
     }
-
     .btn.gold {
-      background-color: var(--or);
-      color: var(--blanc);
+      background-color: var(--or); color: var(--blanc);
       box-shadow: 0 0 15px rgba(212,175,55,0.4);
     }
-
     .btn.gold:hover {
-      background-color: var(--blanc);
-      color: var(--or);
+      background-color: var(--blanc); color: var(--or);
       box-shadow: 0 0 25px rgba(212,175,55,0.6);
       transform: scale(1.03);
     }
-
     .btn.outline {
-      background-color: var(--blanc);
-      color: var(--or);
+      background-color: var(--blanc); color: var(--or);
     }
-
     .btn.outline:hover {
-      background-color: var(--or);
-      color: var(--blanc);
+      background-color: var(--or); color: var(--blanc);
       transform: scale(1.03);
     }
-
-    /* ===== FOOTER ===== */
     footer {
-      background-color: var(--or);
-      color: var(--blanc);
-      text-align: center;
-      padding: 18px 0;
-      font-weight: 600;
-      letter-spacing: 1px;
+      background-color: var(--or); color: var(--blanc);
+      text-align: center; padding: 18px 0;
+      font-weight: 600; letter-spacing: 1px;
     }
-
-    /* ===== ANIMATIONS ===== */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @media (max-width: 850px) {
-      .form-container {
-        padding: 40px 25px;
-      }
-      form {
-        grid-template-columns: 1fr;
-      }
-      .actions {
-        flex-direction: column-reverse;
-        align-items: stretch;
-      }
-      .btn {
-        width: 100%;
-      }
+      .form-container { padding: 40px 25px; }
+      form { grid-template-columns: 1fr; }
+      .actions { flex-direction: column-reverse; align-items: stretch; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
@@ -229,7 +122,7 @@
 
   <main>
     <div class="form-container">
-      <form id="signupForm" autocomplete="on" novalidate>
+      <form id="signupForm" autocomplete="on">
         <label>Prénom *<input type="text" id="firstName" required></label>
         <label>Nom *<input type="text" id="lastName" required></label>
         <label>Email professionnel *<input type="email" id="email" required></label>
@@ -284,36 +177,41 @@
     const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt4aGdmbXR5Z2l1eGFxYnl2amNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3Nzg4MTIsImV4cCI6MjA3NTM1NDgxMn0.UqVXBKVQ_oqXPv5W7Ad--f-Wp21z_2n90Z_1Vz31fzw";
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    typeSelect.addEventListener('change', ()=> {
+    typeSelect.addEventListener('change', () => {
       otherLabel.style.display = (typeSelect.value === 'Autre') ? 'block' : 'none';
     });
 
-    form.addEventListener('submit', async (e)=>{
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if(!form.checkValidity()){
+
+      // ✅ Validation manuelle (corrige le bug)
+      const inputs = form.querySelectorAll('input[required], select[required]');
+      let invalid = false;
+      inputs.forEach(input => { if (!input.value.trim()) invalid = true; });
+      if (invalid || !document.getElementById('rgpd').checked || !document.getElementById('engagement').checked) {
         alert('Merci de remplir tous les champs requis.');
         return;
       }
 
       const data = {
-        first_name: document.getElementById('firstName').value.trim(),
-        last_name: document.getElementById('lastName').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        phone: document.getElementById('phone').value.trim(),
-        establishment: document.getElementById('establishment').value.trim(),
-        type: typeSelect.value === 'Autre' ? document.getElementById('otherType').value.trim() : typeSelect.value,
-        address: document.getElementById('address').value.trim(),
-        postal: document.getElementById('postal').value.trim(),
-        city: document.getElementById('city').value.trim(),
-        nb_etab: parseInt(document.getElementById('nbEtab').value || '1', 10),
-        siren: document.getElementById('siren').value.trim(),
-        rgpd: document.getElementById('rgpd').checked,
-        engagement: document.getElementById('engagement').checked,
+        first_name: form.firstName.value.trim(),
+        last_name: form.lastName.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        establishment: form.establishment.value.trim(),
+        type: typeSelect.value === 'Autre' ? form.otherType.value.trim() : typeSelect.value,
+        address: form.address.value.trim(),
+        postal: form.postal.value.trim(),
+        city: form.city.value.trim(),
+        nb_etab: parseInt(form.nbEtab.value || '1', 10),
+        siren: form.siren.value.trim(),
+        rgpd: form.rgpd.checked,
+        engagement: form.engagement.checked,
         created_at: new Date().toISOString()
       };
 
       const { error } = await supabaseClient.from("users").insert([data]);
-      if(error){
+      if (error) {
         alert("Erreur lors de l'inscription : " + error.message);
         return;
       }
