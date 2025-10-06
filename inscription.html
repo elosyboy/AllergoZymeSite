@@ -210,7 +210,7 @@
         created_at: new Date().toISOString()
       };
 
-      const { error } = await supabaseClient.from("users").insert([data]);
+      const { error } = await supabaseClient.from("utilisateurs").insert([data]);
       if (error) {
         alert("Erreur lors de l'inscription : " + error.message);
         return;
